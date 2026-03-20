@@ -44,9 +44,7 @@ export default function Navbar() {
             className="flex items-center gap-2 text-xl font-semibold text-white hover:text-trading-accent transition-colors"
           >
             <TrendingUp className="h-7 w-7 text-trading-accent" />
-            <span className="font-mono font-bold text-emerald-500 border-l-4 border-emerald-500 pl-3 uppercase tracking-widest">
-  Trade_Ledger
-</span>
+            <span>Trade_Tracker</span>
           </Link>
           <div className="flex items-center gap-4">
             {!loading && (
