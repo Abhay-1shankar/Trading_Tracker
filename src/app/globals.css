@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0a0e17;
+    --foreground: #f1f5f9;
+  }
+
+  body {
+    @apply bg-trading-dark text-slate-100 antialiased;
+  }
+
+  * {
+    @apply border-trading-border;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-trading-card/80 backdrop-blur-xl border border-trading-border/50 rounded-xl;
+  }
+
+  .gradient-border {
+    @apply relative;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+      linear-gradient(135deg, #5f96ee, #06a470, #3b82f6) border-box;
+    border: 1px solid transparent;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-trading-card;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-trading-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-trading-muted;
+}
