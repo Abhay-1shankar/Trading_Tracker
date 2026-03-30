@@ -55,7 +55,7 @@ export default function Dashboard() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-white tracking-tight">Dashboard</h1>
-        <p className="mt-1 text-slate-400">Overview of your F&O trading performance</p>
+        <p className="mt-1 text-slate-500">Overview of your F&O trading performance</p>
       </div>
 
       {/* Total P&L Card */}
@@ -67,7 +67,7 @@ export default function Dashboard() {
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">
+              <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
                 Total P&L
               </p>
               {loading ? (
@@ -75,23 +75,23 @@ export default function Dashboard() {
               ) : (
                 <p
                   className={`mt-2 text-4xl font-bold sm:text-5xl ${
-                    isProfit ? 'text-trading-success' : 'text-trading-danger'
+                    isProfit ? 'text-trading-green' : 'text-trading-red'
                   }`}
                 >
                   ₹{(totalPnL >= 0 ? '+' : '') + totalPnL.toLocaleString('en-IN')}
                 </p>
               )}
-              <p className="mt-2 text-sm text-slate-500">All time cumulative</p>
+              <p className="mt-2 text-sm text-slate-600">All time cumulative</p>
             </div>
             <div
               className={`rounded-xl p-4 ${
-                isProfit ? 'bg-trading-success/10' : 'bg-trading-danger/10'
+                isProfit ? 'bg-trading-green/10' : 'bg-trading-red/10'
               }`}
             >
               {isProfit ? (
-                <TrendingUp className="h-10 w-10 text-trading-success" />
+                <TrendingUp className="h-10 w-10 text-trading-green" />
               ) : (
-                <TrendingDown className="h-10 w-10 text-trading-danger" />
+                <TrendingDown className="h-10 w-10 text-trading-red" />
               )}
             </div>
           </div>
@@ -100,15 +100,15 @@ export default function Dashboard() {
 
       {/* Recent Trades Table */}
       <div className="glass-card overflow-hidden">
-        <div className="border-b border-trading-border px-6 py-4">
+        <div className="border-b border-slate-800 px-6 py-4">
           <div className="flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-lg font-semibold text-white">
-              <Activity className="h-5 w-5 text-trading-accent" />
+              <Activity className="h-5 w-5 text-trading-green" />
               Recent Trades
             </h2>
             <Link
               href="/add-trade"
-              className="flex items-center gap-1 text-sm font-medium text-trading-accent hover:text-blue-400 transition-colors"
+              className="flex items-center gap-1 text-sm font-medium text-trading-green hover:text-trading-green/80 transition-colors"
             >
               Add Trade
               <ArrowUpRight className="h-4 w-4" />
@@ -131,7 +131,7 @@ export default function Dashboard() {
               <p>No trades yet</p>
               <Link
                 href="/add-trade"
-                className="mt-2 text-trading-accent hover:underline"
+                className="mt-2 text-trading-green hover:underline"
               >
                 Add your first trade
               </Link>
@@ -139,7 +139,7 @@ export default function Dashboard() {
           ) : (
             <table className="w-full">
               <thead>
-                <tr className="border-b border-trading-border text-left text-sm text-slate-400">
+                <tr className="border-b border-slate-800 text-left text-sm text-slate-500">
                   <th className="px-6 py-4 font-medium">Symbol</th>
                   <th className="px-6 py-4 font-medium">Entry</th>
                   <th className="px-6 py-4 font-medium">Exit</th>
@@ -155,7 +155,7 @@ export default function Dashboard() {
                   return (
                     <tr
                       key={trade.id}
-                      className="border-b border-trading-border/50 transition-colors hover:bg-trading-cardHover/30"
+                      className="border-b border-slate-800/50 transition-colors hover:bg-trading-cardHover/50"
                     >
                       <td className="px-6 py-4">
                         <span className="font-semibold text-white">{trade.symbol}</span>
@@ -168,13 +168,13 @@ export default function Dashboard() {
                       </td>
                       <td className="px-6 py-4 text-slate-300">{trade.quantity}</td>
                       <td className="px-6 py-4">
-                        <span className="rounded-full bg-trading-accent/10 px-3 py-1 text-xs font-medium text-trading-accent">
+                        <span className="rounded-full bg-trading-green/10 px-3 py-1 text-xs font-medium text-trading-green">
                           {trade.strategy}
                         </span>
                       </td>
                       <td
-                        className={`px-6 py-4 text-right font-semibold ${
-                          profitable ? 'text-trading-success' : 'text-trading-danger'
+                        className={`px-6 py-4 text-right font-bold ${
+                          profitable ? 'text-trading-green' : 'text-trading-red'
                         }`}
                       >
                         {(pnl >= 0 ? '+' : '')}₹{pnl.toLocaleString('en-IN')}

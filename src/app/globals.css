@@ -4,28 +4,28 @@
 
 @layer base {
   :root {
-    --background: #0a0e17;
-    --foreground: #f1f5f9;
+    --background: #0b0e11;
+    --foreground: #ffffff;
   }
 
   body {
-    @apply bg-trading-dark text-slate-100 antialiased;
+    @apply bg-trading-dark text-white antialiased;
   }
 
   * {
-    @apply border-trading-border;
+    @apply border-slate-800;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-trading-card/80 backdrop-blur-xl border border-trading-border/50 rounded-xl;
+    @apply bg-trading-card backdrop-blur-sm border border-slate-800 rounded-lg;
   }
 
   .gradient-border {
     @apply relative;
     background: linear-gradient(var(--background), var(--background)) padding-box,
-      linear-gradient(135deg, #5f96ee, #06a470, #3b82f6) border-box;
+      linear-gradient(135deg, #00d09c, #00a47d, #008b69) border-box;
     border: 1px solid transparent;
   }
 }
@@ -37,13 +37,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-trading-card;
+  @apply bg-trading-dark;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-trading-border rounded-full;
+  @apply bg-slate-800 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-trading-muted;
+  @apply bg-slate-700;
 }

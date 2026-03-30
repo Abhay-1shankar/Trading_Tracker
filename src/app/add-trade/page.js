@@ -73,59 +73,59 @@ export default function AddTrade() {
     <div className="mx-auto max-w-xl py-10 px-4">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <PlusCircle className="text-blue-500" /> New Trade Entry
+          <PlusCircle className="text-trading-green" /> New Trade Entry
         </h1>
         <p className="text-slate-500 text-sm">Keep your journal updated for better analysis.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="bg-[#111] p-6 rounded-xl border border-white/10 space-y-5">
-          
+        <div className="bg-trading-card p-6 rounded-lg border border-slate-800 space-y-5">
+
           <div>
             <label className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Symbol</label>
-            <input 
-              name="symbol" 
+            <input
+              name="symbol"
               placeholder="e.g. NIFTY24MAR22000CE"
-              value={form.symbol} 
+              value={form.symbol}
               onChange={handleChange}
-              className="w-full bg-transparent border-b border-white/10 py-2 text-white focus:border-blue-500 outline-none transition-all"
-              required 
+              className="w-full bg-transparent border-b border-slate-800 py-2 text-white focus:border-trading-green outline-none transition-all"
+              required
             />
           </div>
 
           <div className="grid grid-cols-2 gap-8">
             <div>
               <label className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Avg Entry</label>
-              <input name="entry_price" type="number" step="0.01" value={form.entry_price} onChange={handleChange} className="w-full bg-transparent border-b border-white/10 py-2 text-white focus:border-blue-500 outline-none" required />
+              <input name="entry_price" type="number" step="0.01" value={form.entry_price} onChange={handleChange} className="w-full bg-transparent border-b border-slate-800 py-2 text-white focus:border-trading-green outline-none" required />
             </div>
             <div>
               <label className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Avg Exit</label>
-              <input name="exit_price" type="number" step="0.01" value={form.exit_price} onChange={handleChange} className="w-full bg-transparent border-b border-white/10 py-2 text-white focus:border-blue-500 outline-none" required />
+              <input name="exit_price" type="number" step="0.01" value={form.exit_price} onChange={handleChange} className="w-full bg-transparent border-b border-slate-800 py-2 text-white focus:border-trading-green outline-none" required />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-8">
             <div>
               <label className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Lot Size / Qty</label>
-              <input name="quantity" type="number" value={form.quantity} onChange={handleChange} className="w-full bg-transparent border-b border-white/10 py-2 text-white focus:border-blue-500 outline-none" required />
+              <input name="quantity" type="number" value={form.quantity} onChange={handleChange} className="w-full bg-transparent border-b border-slate-800 py-2 text-white focus:border-trading-green outline-none" required />
             </div>
             <div>
               <label className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Strategy</label>
-              <select name="strategy" value={form.strategy} onChange={handleChange} className="w-full bg-transparent border-b border-white/10 py-2 text-white focus:border-blue-500 outline-none cursor-pointer">
-                {STRATEGIES.map(s => <option key={s} value={s} className="bg-black">{s}</option>)}
+              <select name="strategy" value={form.strategy} onChange={handleChange} className="w-full bg-transparent border-b border-slate-800 py-2 text-white focus:border-trading-green outline-none cursor-pointer">
+                {STRATEGIES.map(s => <option key={s} value={s} className="bg-trading-card">{s}</option>)}
               </select>
             </div>
           </div>
 
           <div>
             <label className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Trade Logic / Psychology</label>
-            <textarea 
-              name="notes" 
+            <textarea
+              name="notes"
               rows="2"
               placeholder="Vwap crossover? Support bounce?"
-              value={form.notes} 
+              value={form.notes}
               onChange={handleChange}
-              className="w-full bg-transparent border-b border-white/10 py-2 text-white focus:border-blue-500 outline-none resize-none"
+              className="w-full bg-transparent border-b border-slate-800 py-2 text-white focus:border-trading-green outline-none resize-none"
             />
           </div>
         </div>
@@ -133,19 +133,19 @@ export default function AddTrade() {
         {previewPnL !== 0 && !isNaN(previewPnL) && (
           <div className="flex justify-between items-center px-2">
             <span className="text-xs text-slate-500 font-bold uppercase tracking-tighter">Projected P&L</span>
-            <span className={`text-xl font-mono font-bold ${previewPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+            <span className={`text-xl font-mono font-bold ${previewPnL >= 0 ? 'text-trading-green' : 'text-trading-red'}`}>
               ₹{previewPnL.toLocaleString('en-IN')}
             </span>
           </div>
         )}
 
-        {error && <p className="text-red-400 text-xs font-medium bg-red-400/10 p-2 rounded">{error}</p>}
+        {error && <p className="text-trading-red text-xs font-medium bg-trading-red/10 p-2 rounded">{error}</p>}
 
         <div className="flex gap-3 pt-6">
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={loading}
-            className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase text-xs tracking-widest py-4 rounded-lg transition-all disabled:opacity-50"
+            className="flex-1 bg-trading-green hover:bg-trading-green/80 text-white font-black uppercase text-xs tracking-widest py-4 rounded-lg transition-all disabled:opacity-50"
           >
             {loading ? 'Executing...' : 'Post to Journal'}
           </button>

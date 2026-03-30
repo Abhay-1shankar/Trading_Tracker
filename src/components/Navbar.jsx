@@ -36,14 +36,14 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-trading-border bg-trading-dark/95 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-slate-800 bg-trading-dark/95 backdrop-blur-xl">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-xl font-semibold text-white hover:text-trading-accent transition-colors"
+            className="flex items-center gap-2 text-xl font-semibold text-white hover:text-trading-green/90 transition-colors"
           >
-            <TrendingUp className="h-7 w-7 text-trading-accent" />
+            <TrendingUp className="h-7 w-7 text-trading-green" />
             <span>Trade_Tracker</span>
           </Link>
           <div className="flex items-center gap-4">
@@ -53,27 +53,27 @@ export default function Navbar() {
                   <>
                     <Link
                       href="/dashboard"
-                      className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                      className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors"
                     >
                       <LayoutDashboard className="h-5 w-5" />
                       Dashboard
                     </Link>
                     <Link
                       href="/add-trade"
-                      className="flex items-center gap-2 rounded-lg bg-trading-accent px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 transition-colors"
+                      className="flex items-center gap-2 rounded-lg bg-trading-green px-4 py-2 text-sm font-medium text-white hover:bg-trading-green/80 transition-colors"
                     >
                       <PlusCircle className="h-5 w-5" />
                       Add Trade
                     </Link>
-                    <div className="flex items-center gap-2 rounded-lg border border-trading-border bg-trading-card/50 px-3 py-2">
-                      <User className="h-4 w-4 text-trading-accent" />
+                    <div className="flex items-center gap-2 rounded-lg border border-slate-800 bg-trading-card/50 px-3 py-2">
+                      <User className="h-4 w-4 text-trading-green" />
                       <span className="max-w-[140px] truncate text-sm text-slate-300" title={user.email}>
                         {user.email}
                       </span>
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="flex items-center gap-2 rounded-lg border border-trading-border px-4 py-2 text-sm font-medium text-slate-300 hover:bg-trading-danger/10 hover:text-trading-danger hover:border-trading-danger/50 transition-colors"
+                      className="flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-trading-red/10 hover:text-trading-red hover:border-trading-red transition-colors"
                     >
                       <LogOut className="h-4 w-4" />
                       Logout
@@ -82,7 +82,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href="/login"
-                    className="flex items-center gap-2 rounded-lg bg-trading-accent px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 transition-colors"
+                    className="flex items-center gap-2 rounded-lg bg-trading-green px-4 py-2 text-sm font-medium text-white hover:bg-trading-green/80 transition-colors"
                   >
                     Sign in
                   </Link>
